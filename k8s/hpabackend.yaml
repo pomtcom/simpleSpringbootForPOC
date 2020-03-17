@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hpademo
+  labels:
+    app: hpademo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hpademo
+  template:
+    metadata:
+      labels:
+        app: hpademo
+    spec:
+      containers:
+        - name: hpademo
+          image: pomtcom/hpademo:latest
+          ports:
+            - containerPort: 8089
